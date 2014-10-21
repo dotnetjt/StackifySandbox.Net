@@ -185,3 +185,5 @@ FakesAssemblies/
 /HelloStackify.Web/connection.Release.config
 /connection.Release.config
 /HelloStackify.Web/connection.Debug.config
+connection.Debug.config
+connection.Release.config
