@@ -271,7 +271,8 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PostBuildEvent>copy /Y "$(SolutionDir)connection.$(ConfigurationName).config" "$(ProjectDir)connection.config"</PostBuildEvent>
+    <PostBuildEvent>IF EXIST $(SolutionDir)connection.$(ConfigurationName).config copy /Y "$(SolutionDir)connection.$(ConfigurationName).config" "$(ProjectDir)connection.config" 
+</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

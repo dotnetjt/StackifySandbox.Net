@@ -5,6 +5,12 @@ VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloStackify.Web", "HelloStackify.Web\HelloStackify.Web.csproj", "{EE6F47B2-0AB3-4D93-813E-80E9CE9DAC52}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Connections", "Connections", "{9306DC58-9E1A-4AA9-B3FD-11769D90383E}"
+	ProjectSection(SolutionItems) = preProject
+		connection.Debug.config = connection.Debug.config
+		connection.Release.config = connection.Release.config
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
