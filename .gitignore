@@ -181,3 +181,7 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
+/connection.Debug.config
+/HelloStackify.Web/connection.Release.config
+/connection.Release.config
+/HelloStackify.Web/connection.Debug.config
