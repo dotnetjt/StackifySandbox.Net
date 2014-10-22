@@ -9,16 +9,21 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using HelloStackify.Web.Models;
+using log4net;
 
 namespace HelloStackify.Web.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
+        private static readonly ILog log = LogManager.GetLogger(typeof(AccountController).Name);
+        
+
         private ApplicationUserManager _userManager;
 
         public AccountController()
         {
+                
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -68,12 +73,15 @@ namespace HelloStackify.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
+                
                 return View(model);
             }
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+
+            log.Debug("Log in user result", new { result = ((Microsoft.AspNet.Identity.Owin.SignInStatus)result).ToString(), username = model.Email, user = User });
             switch (result)
             {
                 case SignInStatus.Success:
@@ -97,6 +105,7 @@ namespace HelloStackify.Web.Controllers
             // Require that the user has already logged in via username/password or external login
             if (!await SignInManager.HasBeenVerifiedAsync())
             {
+                log.Error("Can't verify code", new { provider = provider, returnUrl = returnUrl, rememberMe = rememberMe });
                 return View("Error");
             }
             var user = await UserManager.FindByIdAsync(await SignInManager.GetVerifiedUserIdAsync());
@@ -116,6 +125,7 @@ namespace HelloStackify.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
+                log.Error("Can't validate model", model);
                 return View(model);
             }
 
@@ -168,8 +178,11 @@ namespace HelloStackify.Web.Controllers
 
                     return RedirectToAction("Index", "Home");
                 }
+                log.Error("Error registering", result);
                 AddErrors(result);
             }
+
+
 
             // If we got this far, something failed, redisplay form
             return View(model);
@@ -247,6 +260,9 @@ namespace HelloStackify.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model)
         {
+
+            log.Debug("Resetting password", model);
+
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -374,6 +390,7 @@ namespace HelloStackify.Web.Controllers
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
+                    log.Debug("Log in user", user);
                     result = await UserManager.AddLoginAsync(user.Id, info.Login);
                     if (result.Succeeded)
                     {

@@ -1,31 +1,33 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Stackify Sandbox Home";
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1>Stackify Sandbox</h1>
+    <p class="lead">This is a demo site used to show the features of Stackify to monitor and instrument web applications, collect errors and logs, and more!</p>
+    <p class="lead">Click on @Html.ActionLink("About","About") to learn more about how to use this demo website.</p>
+    <p><a href="http://www.stackify.com" target="_blank" class="btn btn-primary btn-lg">Learn more about Stackify &raquo;</a></p>
 </div>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        <h2>Monitoring</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            Monitoring is easy! Install the Stackify Agent (.Net or Linux) on the server and instantly collect server and application performance data, and gain the ability to perform some remote
+            administration through the Stackify portal.
         </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <p><a class="btn btn-default" href="http://www.stackify.com/features/">Learn more about Stackify &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <h2>Errors and Logs</h2>
+        <p>Stackify allows you to easily send all of your application Errors and Logs to a central location for quick search and monitoring. No more managing log file rotation across all your servers.</p>
+        <p>
+            @Html.ActionLink("Learn more", "ELM", null, new { @class="btn btn-default"})
+        </p>
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <h2>.Net Profiling</h2>
+        <p>Learn where your app is spending it's time, gaining insight to how quickly pages load, what database queries are being executed, etc.</p>
+        <p>@Html.ActionLink("Learn more", "APM", null, new { @class = "btn btn-default" })</p>
     </div>
 </div>
