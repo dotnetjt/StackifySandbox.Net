@@ -42,11 +42,12 @@ namespace HelloStackify.Web
         void MvcApplication_BeginRequest(object sender, EventArgs e)
         {
 
-            //log4net.LogicalThreadContext.Properties["Request"] = new
-            //{
-            //    HostAddress = Request.UserHostAddress,
-            //    Params = Request.Params
-            //};
+            log4net.LogicalThreadContext.Properties["Request"] = new
+            {
+                HostAddress = Request.UserHostAddress,
+                RawUrl = Request.RawUrl
+            };
+            //log4net.LogicalThreadContext.Properties["Request"] = Request;
 
         }
     }

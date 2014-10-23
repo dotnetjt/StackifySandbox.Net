@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceDefinition name="HelloStackify.Cloud" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2014-06.2.4">
+  <WebRole name="HelloStackify.Web" vmsize="ExtraSmall">
+    <Sites>
+      <Site name="Web">
+        <Bindings>
+          <Binding name="Endpoint1" endpointName="Endpoint1" />
+        </Bindings>
+      </Site>
+    </Sites>
+    <Endpoints>
+      <InputEndpoint name="Endpoint1" protocol="http" port="80" />
+    </Endpoints>
+    <Imports>
+      <Import moduleName="Diagnostics" />
+    </Imports>
+    <Startup>
+      <Task commandLine="Install.cmd" executionContext="elevated" taskType="background">
+        <Environment>
+          <Variable name="ACTIVATIONKEY" value="" />
+          <Variable name="ENVIRONMENT" value="'Sandbox'" />
+        </Environment>
+      </Task>
+    </Startup>
+  </WebRole>
+</ServiceDefinition>
