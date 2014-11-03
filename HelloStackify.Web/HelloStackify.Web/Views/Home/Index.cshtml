@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Stackify Sandbox Home";
+}
+
+<div class="jumbotron">
+    <h1>Stackify Sandbox</h1>
+    <p class="lead">This is a demo site used to show the features of Stackify to monitor and instrument web applications, collect errors and logs, and more!</p>
+    <p class="lead">Click on @Html.ActionLink("About","About") to learn more about how to use this demo website.</p>
+    <p><a href="http://www.stackify.com" target="_blank" class="btn btn-primary btn-lg">Learn more about Stackify &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Monitoring</h2>
+        <p>
+            Monitoring is easy! Install the Stackify Agent (.Net or Linux) on the server and instantly collect server and application performance data, and gain the ability to perform some remote
+            administration through the Stackify portal.
+        </p>
+        <p><a class="btn btn-default" href="http://www.stackify.com/features/">Learn more about Stackify &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Errors and Logs</h2>
+        <p>Stackify allows you to easily send all of your application Errors and Logs to a central location for quick search and monitoring. No more managing log file rotation across all your servers.</p>
+        <p>
+            @Html.ActionLink("Learn more", "ELM", null, new { @class="btn btn-default"})
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>.Net Profiling</h2>
+        <p>Learn where your app is spending it's time, gaining insight to how quickly pages load, what database queries are being executed, etc.</p>
+        <p>@Html.ActionLink("Learn more", "APM", null, new { @class = "btn btn-default" })</p>
+    </div>
+</div>

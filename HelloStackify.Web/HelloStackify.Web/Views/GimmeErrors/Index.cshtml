@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Errors";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>
+    This page is designed to test the Errors functionality. On load, it will throw a NullReferenceException and log to Stackify.
+
+    <h3>Click @Html.ActionLink("here","NoView") to generate an exception from not having a View for a Controller.</h3>
+</p>
+

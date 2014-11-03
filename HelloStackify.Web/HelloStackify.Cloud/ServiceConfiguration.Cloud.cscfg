@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="HelloStackify.Cloud" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-06.2.4">
+  <Role name="HelloStackify.Web">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=devtestvhds80a80465c12f;AccountKey=chOkfI4grUEMfGwKDFhpBhUvu6OO4OmFy3F8SU7juR17xThQid2TbO8zB8wk46F1qNjp1uGqvAC6ePzDl+CzBg==" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>
