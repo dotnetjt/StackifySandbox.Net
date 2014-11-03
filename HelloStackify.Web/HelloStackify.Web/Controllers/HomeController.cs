@@ -16,8 +16,8 @@ namespace HelloStackify.Web.Controllers
 
         public ActionResult Index()
         {
+            log.Error("This is a new error!");
             
-
             if(User.Identity.IsAuthenticated)
             {
                 log.Debug("User is authenticated");

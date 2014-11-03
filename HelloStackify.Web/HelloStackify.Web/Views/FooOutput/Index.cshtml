@@ -1,0 +1,30 @@
+﻿@model List<HelloStackify.Web.Models.Foo>
+@using GridMvc.Html
+@{
+    ViewBag.Title = "Foos";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <p>
+            Create and view new examples of our model, "Foo"
+            
+        </p>
+        @Html.ActionLink("Create a Foo","Create")
+        @Html.Grid(Model).Columns(
+            c =>
+            {
+                c.Add(foo => foo.RequiredInt).Titled("Int value");
+                c.Add(foo => foo.FooString).Titled("String value");
+            }
+        ).Sortable(true).WithPaging(20)
+    </div>
+</div>
+
+
+
+
+

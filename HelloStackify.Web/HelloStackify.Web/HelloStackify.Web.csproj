@@ -45,6 +45,9 @@
     <Reference Include="Elmah.Mvc">
       <HintPath>..\packages\Elmah.MVC.2.1.1\lib\net40\Elmah.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="GridMvc">
+      <HintPath>..\packages\Grid.Mvc.3.0.0\lib\net40\GridMvc.dll</HintPath>
+    </Reference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
     </Reference>
@@ -203,12 +206,34 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FooOutputController.cs" />
     <Compile Include="Controllers\GimmeErrorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201410231706322_InitialCreate.cs" />
+    <Compile Include="Migrations\201410231706322_InitialCreate.Designer.cs">
+      <DependentUpon>201410231706322_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410311634148_Foos.cs" />
+    <Compile Include="Migrations\201410311634148_Foos.Designer.cs">
+      <DependentUpon>201410311634148_Foos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201410311637324_Foos2.cs" />
+    <Compile Include="Migrations\201410311637324_Foos2.Designer.cs">
+      <DependentUpon>201410311637324_Foos2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201411031649475_FooString2.cs" />
+    <Compile Include="Migrations\201411031649475_FooString2.Designer.cs">
+      <DependentUpon>201411031649475_FooString2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201411031716290_FooBool.cs" />
+    <Compile Include="Migrations\201411031716290_FooBool.Designer.cs">
+      <DependentUpon>201411031716290_FooBool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -219,6 +244,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Gridmvc.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -226,6 +252,9 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="connection.config" />
+    <Content Include="Scripts\gridmvc.js" />
+    <Content Include="Scripts\gridmvc.lang.ru.js" />
+    <Content Include="Scripts\gridmvc.min.js" />
     <Content Include="settings.config">
       <SubType>Designer</SubType>
     </Content>
@@ -235,6 +264,7 @@
     <Content Include="Install.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Grid.mvc.readme" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -248,7 +278,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -287,6 +319,10 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\GimmeErrors\Index.cshtml" />
+    <Content Include="Views\FooOutput\Index.cshtml" />
+    <Content Include="Views\Shared\_GridPager.cshtml" />
+    <Content Include="Views\Shared\_Grid.cshtml" />
+    <Content Include="Views\FooOutput\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -297,6 +333,23 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201410231706322_InitialCreate.resx">
+      <DependentUpon>201410231706322_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410311634148_Foos.resx">
+      <DependentUpon>201410311634148_Foos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201410311637324_Foos2.resx">
+      <DependentUpon>201410311637324_Foos2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411031649475_FooString2.resx">
+      <DependentUpon>201411031649475_FooString2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411031716290_FooBool.resx">
+      <DependentUpon>201411031716290_FooBool.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

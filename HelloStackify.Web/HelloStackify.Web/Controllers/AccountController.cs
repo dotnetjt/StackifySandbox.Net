@@ -261,8 +261,11 @@ namespace HelloStackify.Web.Controllers
         public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model)
         {
 
-            log.Debug("Resetting password", model);
+            log.Debug("Resetting password");
 
+
+            log.Debug("Resetting password", model);
+            
             if (!ModelState.IsValid)
             {
                 return View(model);

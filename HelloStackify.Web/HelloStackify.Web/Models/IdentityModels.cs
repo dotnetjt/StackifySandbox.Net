@@ -29,5 +29,8 @@ namespace HelloStackify.Web.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Foo> Foos { get; set; }
+
     }
 }

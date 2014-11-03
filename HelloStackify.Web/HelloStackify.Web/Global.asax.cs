@@ -21,6 +21,7 @@ namespace HelloStackify.Web
 
         void MvcApplication_AuthenticateRequest(object sender, EventArgs e)
         {
+
             try
             {
                 log4net.LogicalThreadContext.Properties["User"] = User;
@@ -45,7 +46,9 @@ namespace HelloStackify.Web
             log4net.LogicalThreadContext.Properties["Request"] = new
             {
                 HostAddress = Request.UserHostAddress,
-                RawUrl = Request.RawUrl
+                RawUrl = Request.RawUrl,
+                QueryString = Request.QueryString,
+                FormValues = Request.Form
             };
             //log4net.LogicalThreadContext.Properties["Request"] = Request;
 

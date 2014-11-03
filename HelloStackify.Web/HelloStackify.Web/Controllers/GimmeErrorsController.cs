@@ -3,7 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using HelloStackify.Web.Models;
 using log4net;
+using Microsoft.Ajax.Utilities;
+using Newtonsoft.Json;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
 
 namespace HelloStackify.Web.Controllers
 {
@@ -25,6 +31,9 @@ namespace HelloStackify.Web.Controllers
             {
                 log.Error(e);
             }
+            FooOutputController ctrl = new FooOutputController();
+            ctrl.CreateFoos(1,"The foo is 1");
+            ctrl.CreateFoos(null, "The foo is null");
             
             return View();
         }
@@ -33,5 +42,6 @@ namespace HelloStackify.Web.Controllers
         {
             return View();
         }
+
     }
 }
